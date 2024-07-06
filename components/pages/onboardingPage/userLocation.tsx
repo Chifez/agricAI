@@ -14,11 +14,11 @@ const UserLocation = () => {
   };
   return (
     <form action="" className="space-y-10">
-      <div className=" border border-primary p-4 rounded-md shadow-lg space-y-2">
+      <div className="border border-primary rounded-md shadow-lg space-y-2">
         <UserInput
           label="Location"
           inputChange={(e) => console.log(e)}
-          className="w-full px-3 py-2 rounded-md bg-gray-200"
+          className="w-full  rounded-md bg-gray-200"
           placeholder="E.g Abuja"
         />
 
@@ -27,7 +27,7 @@ const UserLocation = () => {
           placeholder="Wet season"
           label="Season"
           initialState={options[0]}
-          className="w-full px-3 py-2 rounded-md bg-gray-200"
+          className="w-full rounded-md bg-gray-200"
           onChange={handleSelectChange}
         />
       </div>

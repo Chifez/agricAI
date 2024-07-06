@@ -1,4 +1,4 @@
-import OnboardingForm from '@/components/pages/onboarding/Index';
+import OnboardingForm from '@/components/pages/onboardingPage/Index';
 
 const Onboarding = () => {
   return <OnboardingForm />;
