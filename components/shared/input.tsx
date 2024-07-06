@@ -14,22 +14,23 @@ const UserInput = (props: {
   const { label, type, name, value, placeholder, className, inputChange } =
     props;
   return (
-    <div className="flex items-center justify-between rounded-lg border border-primary">
-      <input
-        type={type ? type : 'text'}
-        id={label}
-        name={name}
-        value={value}
-        placeholder={placeholder}
-        className={`${className} flex-1 outline-none mr-1`}
-        onChange={inputChange}
-      />
-
+    <div className="flex flex-col">
       {label && (
         <label htmlFor={label} id={label} className="w-fit">
           {label}
         </label>
       )}
+      <div className="rounded-lg ">
+        <input
+          type={type ? type : 'text'}
+          id={label}
+          name={name}
+          value={value}
+          placeholder={placeholder}
+          className={`${className} flex-1  outline-none mr-1`}
+          onChange={inputChange}
+        />
+      </div>
     </div>
   );
 };

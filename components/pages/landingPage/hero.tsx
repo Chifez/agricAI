@@ -4,9 +4,12 @@ import { useState } from 'react';
 import Button from '../../shared/button';
 import UserInput from '../../shared/input';
 import Navbar from '../../shared/navbar';
+import { useRouter } from 'next/navigation';
 
 const Hero = () => {
   const [input, setInput] = useState('');
+
+  const router = useRouter();
   return (
     <div>
       <Navbar />
@@ -38,6 +41,7 @@ const Hero = () => {
             <Button
               type="submit"
               className="px-14 text-base font-medium rounded-md"
+              handleClick={() => router.push('/onboarding')}
             >
               Get Report
             </Button>
