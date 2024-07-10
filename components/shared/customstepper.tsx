@@ -3,9 +3,12 @@
 import { ReactNode, useState } from 'react';
 import Button from './button';
 import Carousel from './carousel';
+import { getReport } from '@/lib/utils/getReport';
+import { useRouter } from 'next/navigation';
 
 const CustomStepper = (props: { children: ReactNode[] }) => {
   const [activeStep, setActiveStep] = useState(0);
+  const router = useRouter();
 
   const nextStep = () => {
     if (activeStep >= props.children.length - 1) return;
@@ -17,16 +20,15 @@ const CustomStepper = (props: { children: ReactNode[] }) => {
     setActiveStep((prev) => prev - 1);
   };
 
-  const getReport = () => {
-    console.log('get report');
-  };
-
   return (
     <section className="flex flex-col justify-center items-center gap-2 w-full h-full px-20 py-2">
       <div className="w-full">
         <div className="flex items-center justify-around">
           {props.children.map((step, idx) => (
-            <div className="relative w-full h-fit flex justify-center items-center">
+            <div
+              className="relative w-full h-fit flex justify-center items-center"
+              key={idx}
+            >
               <div className="z-50 w-5 h-5 text-center text-sm rounded-full bg-primary text-white">
                 <p>{idx + 1}</p>
               </div>
@@ -43,7 +45,7 @@ const CustomStepper = (props: { children: ReactNode[] }) => {
       </div>
       <Carousel currentIndex={activeStep}>
         {props.children.map((item, index) => (
-          <div className="min-w-full h-full px-8 py-4" key={index}>
+          <div className=" min-w-full h-full px-8 py-2" key={index}>
             {item}
           </div>
         ))}
@@ -67,7 +69,7 @@ const CustomStepper = (props: { children: ReactNode[] }) => {
       </div>
 
       <Button
-        handleClick={getReport}
+        handleClick={() => getReport(router)}
         className={`${
           activeStep == props.children.length - 1 ? 'visible' : 'invisible'
         } rounded-none px-4`}

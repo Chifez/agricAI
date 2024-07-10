@@ -1,24 +1,36 @@
 'use client';
 
-import { ReactNode, useEffect, useState } from 'react';
+import React from 'react';
+import { ReactNode, useEffect, useMemo, useState } from 'react';
 
 interface Props {
   children: ReactNode | ReactNode[];
   currentIndex: number;
 }
-const Carousel = ({ children, currentIndex }: Props) => {
-  const [translateSize, setTranslateSize] = useState('-translate-x-[0]');
 
-  useEffect(() => {
-    setTranslateSize(`-translate-x-[${currentIndex * 100}%]`);
-  }, [currentIndex]);
+const getTranslationClass = (children: ReactNode | ReactNode[]) => {
+  const count = React.Children.count(children);
+  return Array.from(
+    { length: count },
+    (_, index) => `-translate-x-[${index * 100}%]`
+  );
+};
+
+const Carousel = ({ children, currentIndex }: Props) => {
+  const translateClasses = useMemo(
+    () => getTranslationClass(children),
+    [children]
+  );
+
+  const translateSize = translateClasses[currentIndex] || 'translate-x-0';
 
   return (
-    <div className={`w-[70%] flex overflow-x-hidden`}>
-      <div className={`${translateSize} w-full flex transition duration-500`}>
+    <div className="w-[70%] flex overflow-x-hidden">
+      <div className={`w-full flex transition duration-500 ${translateSize}`}>
         {children}
       </div>
     </div>
   );
 };
+
 export default Carousel;

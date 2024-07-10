@@ -15,31 +15,31 @@ const UserInfo = () => {
   };
   return (
     <form action="" className="space-y-6">
-      <div className="border border-primary rounded-md shadow-lg space-y-2">
+      <div className="border border-primary rounded-md shadow-lg space-y-2 p-4">
         <UserInput
           label="Full Name"
           inputChange={(e) => console.log(e)}
-          className="w-full rounded-md bg-gray-200"
+          className="w-full p-2 rounded-md bg-gray-200"
           placeholder="John Doe"
         />
         <UserInput
           label="Email Address"
           inputChange={(e) => console.log(e)}
-          className="w-full rounded-md  bg-gray-200"
+          className="w-full p-2 rounded-md  bg-gray-200"
           placeholder="JonhDoe@example.com"
         />
         <UserInput
           label="Phone Number"
           inputChange={(e) => console.log(e)}
-          className="w-full rounded-md  bg-gray-200"
+          className="w-full p-2 rounded-md  bg-gray-200"
           placeholder="+1234567"
         />
       </div>
-      <div className=" border border-primary  rounded-md shadow-lg space-y-2">
+      <div className=" border border-primary  rounded-md shadow-lg space-y-2 p-4">
         <UserInput
           label="Crop Name"
           inputChange={(e) => console.log(e)}
-          className="w-full rounded-md bg-gray-200"
+          className="w-full p-2 rounded-md bg-gray-200"
           placeholder="Okro"
         />
 
@@ -48,7 +48,7 @@ const UserInfo = () => {
           placeholder="Vegetable"
           label="Crop type"
           initialState=""
-          className="w-full rounded-md bg-gray-200"
+          className="w-full p-2 rounded-md bg-gray-200"
           onChange={handleSelectChange}
         />
       </div>
