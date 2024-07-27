@@ -10,6 +10,11 @@ const Hero = () => {
   const [input, setInput] = useState('');
 
   const router = useRouter();
+
+  const gotoReport = (e: { preventDefault: () => void }) => {
+    e.preventDefault();
+    router.push('onboarding');
+  };
   return (
     <div>
       <Navbar />
@@ -41,7 +46,7 @@ const Hero = () => {
             <Button
               type="submit"
               className="px-14 text-base font-medium rounded-md"
-              handleClick={() => router.push('/onboarding')}
+              handleClick={gotoReport}
             >
               Get Report
             </Button>

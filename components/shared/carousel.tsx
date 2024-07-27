@@ -17,13 +17,18 @@ const getTranslationClass = (children: ReactNode | ReactNode[]) => {
 };
 
 const Carousel = ({ children, currentIndex }: Props) => {
+  const [translateIndex, setTranslateIndex] = useState(0);
+
   const translateClasses = useMemo(
     () => getTranslationClass(children),
     [children]
   );
 
-  const translateSize = translateClasses[currentIndex] || 'translate-x-0';
+  useEffect(() => {
+    setTranslateIndex(currentIndex);
+  }, [currentIndex]);
 
+  const translateSize = translateClasses[translateIndex] || 'translate-x-0';
   return (
     <div className="w-[70%] flex overflow-x-hidden">
       <div className={`w-full flex transition duration-500 ${translateSize}`}>

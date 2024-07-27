@@ -27,10 +27,16 @@ const Navbar = () => {
         </li>
       </ul>
       <div className="flex items-center gap-2 ">
-        <Button className="px-10 bg-transparent text-black/80 text-base font-medium">
+        <Button
+          className="px-10 bg-transparent text-black/80 text-base font-medium"
+          handleClick={() => console.log('clicked')}
+        >
           Learn
         </Button>
-        <Button className="px-14 text-base font-medium rounded-md">
+        <Button
+          className="px-14 text-base font-medium rounded-md"
+          handleClick={() => console.log('clicked')}
+        >
           Get Report
         </Button>
       </div>

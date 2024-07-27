@@ -29,13 +29,13 @@ const CustomStepper = (props: { children: ReactNode[] }) => {
               className="relative w-full h-fit flex justify-center items-center"
               key={idx}
             >
-              <div className="z-50 w-5 h-5 text-center text-sm rounded-full bg-primary text-white">
+              <div className="z-50 w-5 h-5 text-center text-sm rounded-full bg-green-600 text-white">
                 <p>{idx + 1}</p>
               </div>
               {idx + 1 < props.children.length && (
                 <span
                   className={`left-[50%] z-10 w-full absolute h-[2px] top-[50%] transition-all duration-500 ${
-                    activeStep >= idx + 1 ? 'bg-primary' : 'bg-gray-300'
+                    activeStep >= idx + 1 ? 'bg-green-600' : 'bg-gray-300'
                   }`}
                 />
               )}
@@ -45,7 +45,10 @@ const CustomStepper = (props: { children: ReactNode[] }) => {
       </div>
       <Carousel currentIndex={activeStep}>
         {props.children.map((item, index) => (
-          <div className=" min-w-full h-full px-8 py-2" key={index}>
+          <div
+            className="min-w-full h-full px-8 py-2 border border-red-500"
+            key={index}
+          >
             {item}
           </div>
         ))}

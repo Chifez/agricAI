@@ -21,7 +21,7 @@ const Button = ({
     <button
       type={type ? type : 'button'}
       onClick={handleClick}
-      className={`bg-primary text-white text-center text-sm font-semibold rounded-lg p-2 cursor-pointer ${
+      className={`bg-green-600 text-white text-center text-sm font-semibold rounded-lg p-2 cursor-pointer ${
         isLoading || pending ? 'cursor-not-allowed' : ''
       } ${className}`}
       style={{
