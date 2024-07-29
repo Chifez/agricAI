@@ -5,8 +5,11 @@ import Button from './button';
 import Carousel from './carousel';
 import { getReport } from '@/lib/utils/getReport';
 import { useRouter } from 'next/navigation';
+import { useOnboarding } from '@/lib/utils/hooks/useOnboarding';
 
 const CustomStepper = (props: { children: ReactNode[] }) => {
+  const { onboardingData } = useOnboarding();
+
   const [activeStep, setActiveStep] = useState(0);
   const router = useRouter();
 
@@ -18,6 +21,9 @@ const CustomStepper = (props: { children: ReactNode[] }) => {
   const prevStep = () => {
     if (activeStep <= 0) return;
     setActiveStep((prev) => prev - 1);
+  };
+  const handleClick = () => {
+    console.log('final data', onboardingData);
   };
 
   return (
@@ -72,7 +78,7 @@ const CustomStepper = (props: { children: ReactNode[] }) => {
       </div>
 
       <Button
-        handleClick={() => getReport(router)}
+        handleClick={handleClick}
         className={`${
           activeStep == props.children.length - 1 ? 'visible' : 'invisible'
         } rounded-none px-4`}

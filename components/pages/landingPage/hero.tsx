@@ -11,6 +11,29 @@ const Hero = () => {
 
   const router = useRouter();
 
+  const getReport = async (e) => {
+    e.preventDefault();
+    console.log(input);
+    try {
+      const response = await fetch('/api/get_report', {
+        method: 'POST',
+        headers: {
+          'Content-type': 'application/json',
+        },
+        body: JSON.stringify({ body: input }),
+      });
+
+      const data = await response.json();
+      if (response.ok) {
+        console.log('response', data.output);
+      } else {
+        console.log('error', data.error);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   const gotoReport = (e: { preventDefault: () => void }) => {
     e.preventDefault();
     router.push('onboarding');
@@ -46,7 +69,7 @@ const Hero = () => {
             <Button
               type="submit"
               className="px-14 text-base font-medium rounded-md"
-              handleClick={gotoReport}
+              handleClick={getReport}
             >
               Get Report
             </Button>

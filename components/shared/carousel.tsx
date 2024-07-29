@@ -19,20 +19,29 @@ const getTranslationClass = (children: ReactNode | ReactNode[]) => {
 const Carousel = ({ children, currentIndex }: Props) => {
   const [translateIndex, setTranslateIndex] = useState(0);
 
-  const translateClasses = useMemo(
-    () => getTranslationClass(children),
-    [children]
-  );
+  const translateClasses = useMemo(() => getTranslationClass(children), []);
 
   useEffect(() => {
     setTranslateIndex(currentIndex);
+    console.log(translateClasses);
   }, [currentIndex]);
 
-  const translateSize = translateClasses[translateIndex] || 'translate-x-0';
+  //   const translateClasses = [
+  // 'translate-x-0',
+  // '-translate-x-[100%]',
+  // '-translate-x-[200%]',
+
+  //   ]
+  const translateSize = translateClasses[translateIndex];
+
   return (
     <div className="w-[70%] flex overflow-x-hidden">
-      <div className={`w-full flex transition duration-500 ${translateSize}`}>
-        {children}
+      <div
+        className={`w-full flex transition-transform duration-500 ${translateSize}`}
+      >
+        {React.Children.map(children, (child, index) => (
+          <div className="min-w-full">{child}</div>
+        ))}
       </div>
     </div>
   );
