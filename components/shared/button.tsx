@@ -14,7 +14,7 @@ const Button = ({
   children: string | ReactNode;
   className?: string;
   isLoading?: boolean;
-  handleClick?: () => void;
+  handleClick?: (e?: any) => void;
 }) => {
   const { pending } = useFormStatus();
   return (

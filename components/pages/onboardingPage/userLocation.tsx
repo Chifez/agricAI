@@ -24,6 +24,7 @@ const UserLocation = () => {
       <div className="border border-primary rounded-md shadow-lg space-y-2 p-4">
         <UserInput
           label="Location"
+          required={true}
           name="location"
           value={onboardingData.location}
           inputChange={handleChange}
@@ -34,6 +35,7 @@ const UserLocation = () => {
         <DropDown
           options={options}
           placeholder="Wet season"
+          required={true}
           label="Season"
           name="season"
           initialState={options[0]}

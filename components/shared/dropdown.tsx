@@ -5,6 +5,7 @@ import React, { useState, useEffect } from 'react';
 type DropDownProps = {
   options: string[];
   label: string;
+  required?: boolean;
   name: string;
   placeholder: string;
   initialState: string;
@@ -15,6 +16,7 @@ type DropDownProps = {
 const DropDown: React.FC<DropDownProps> = ({
   options,
   label,
+  required = false,
   name,
   placeholder,
   initialState,
@@ -36,6 +38,7 @@ const DropDown: React.FC<DropDownProps> = ({
           type="text"
           id={label}
           name={name}
+          required={required}
           list="dropdown-options"
           placeholder={placeholder}
           value={inputValue}

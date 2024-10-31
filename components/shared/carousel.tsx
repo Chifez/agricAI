@@ -26,12 +26,6 @@ const Carousel = ({ children, currentIndex }: Props) => {
     console.log(translateClasses);
   }, [currentIndex]);
 
-  //   const translateClasses = [
-  // 'translate-x-0',
-  // '-translate-x-[100%]',
-  // '-translate-x-[200%]',
-
-  //   ]
   const translateSize = translateClasses[translateIndex];
 
   return (

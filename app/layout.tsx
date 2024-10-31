@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
 import { OnboardingProvider } from '@/lib/utils/context/onboardingContext';
+import { WeatherProvider } from '@/lib/utils/context/weatherContext';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -17,9 +18,11 @@ export default function RootLayout({
 }>) {
   return (
     <OnboardingProvider>
-      <html lang="en">
-        <body className={inter.className}>{children}</body>
-      </html>
+      <WeatherProvider>
+        <html lang="en">
+          <body className={inter.className}>{children}</body>
+        </html>
+      </WeatherProvider>
     </OnboardingProvider>
   );
 }

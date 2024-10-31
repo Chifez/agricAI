@@ -21,11 +21,13 @@ const UserInfo = () => {
   const handleSelectChange = (name: string, value: string) => {
     setOnboardingData({ ...onboardingData, [name]: value });
   };
+
   return (
     <form action="" className="space-y-6">
       <div className="border border-primary rounded-md shadow-lg space-y-2 p-4">
         <UserInput
           label="Full Name"
+          required={true}
           name="full_name"
           value={onboardingData.full_name}
           inputChange={handleChange}
@@ -34,6 +36,7 @@ const UserInfo = () => {
         />
         <UserInput
           label="Email Address"
+          required={true}
           name="email"
           value={onboardingData.email}
           inputChange={handleChange}
@@ -42,6 +45,7 @@ const UserInfo = () => {
         />
         <UserInput
           label="Phone Number"
+          required={true}
           name="phone"
           value={onboardingData.phone}
           inputChange={handleChange}
@@ -52,6 +56,7 @@ const UserInfo = () => {
       <div className=" border border-primary  rounded-md shadow-lg space-y-2 p-4">
         <UserInput
           label="Crop Name"
+          required={true}
           name="crop_name"
           value={onboardingData.crop_name}
           inputChange={handleChange}

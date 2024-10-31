@@ -13,7 +13,7 @@ const Navbar = () => {
 
   return (
     <nav className="flex items-center justify-between border-b px-8 py-3 h-16">
-      <div className="relative w-14 h-14 border border-red-600">
+      <div className="relative w-14 h-14">
         <Image
           src="/logo.png"
           alt="frame"
@@ -24,19 +24,25 @@ const Navbar = () => {
       </div>
       <ul className="flex items-center gap-4">
         <li>
-          <Link href={''} className="text-base font-medium text-black/80">
-            Planting Season
+          <Link
+            href={''}
+            className="text-base font-medium text-black/80 hover:bg-gray-200 rounded p-2"
+          >
+            Season
           </Link>
         </li>
         <li>
-          <Link href={''} className="text-base font-medium text-black/80">
-            About Us
+          <Link
+            href={''}
+            className="text-base font-medium text-black/80 hover:bg-gray-200 rounded p-2"
+          >
+            About
           </Link>
         </li>
       </ul>
       <div className="flex items-center gap-2">
         <Button
-          className="px-10 bg-transparent  text-base font-medium !text-black/80 border"
+          className="px-10 bg-transparent  text-base font-medium !text-black/80 border hover:bg-green-600 transition hover:!text-white"
           handleClick={() => console.log('clicked')}
         >
           Learn
